@@ -6,9 +6,14 @@ public class Deck {
     private int carta_atual = 0;
     
     
-    public Deck(Card baralho) {
+    public Deck() {
     	this.baralho = new Card[num_cards];
     }
+    
+    public Card[] getDeck() {
+    	return baralho;
+    }
+    
     
     public void CriaDeck(){
         int n = 0;
@@ -32,4 +37,15 @@ public class Deck {
         }
     }
     
+    public void shuffle(){
+        int index;
+        Card temp;
+        Random random = new Random();
+        for (int i = baralho.length-1;i>0;i--){
+            index = random.nextInt(i+1);
+            temp = baralho[index];
+            baralho[index] = baralho[i];
+            baralho[i] = temp;
+        }
+    }
 }
