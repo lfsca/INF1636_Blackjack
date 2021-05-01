@@ -4,6 +4,7 @@ class Jogador {
 	private String nome;
 	private Card mao[];
 	private int soma;
+	private boolean blackJack;
 	
 	public Jogador(String nome) {
 		int valores[]= new int[]{1,5,10,20,50,100};
@@ -17,6 +18,7 @@ class Jogador {
 		this.nome = nome;
 		this.mao = new Card[2];
 		this.soma = 0;
+		this.blackJack = false;
 	}
 	
 	public Ficha[] getpote() {
@@ -37,6 +39,10 @@ class Jogador {
 	
 	public int getSumHand() {
 		return soma;
+	}
+	
+	public boolean getBlackjack() {
+		return blackJack;
 	}
 	
 	public int getSumPote() {
@@ -65,6 +71,11 @@ class Jogador {
 		mao = c;
 		for (int i=0;i<mao.length;i++) {
 			soma += mao[i].getValorInt();
+		}
+		Card c1 = new Card(Valor.As,Naipe.Espadas);
+		Card c2 = new Card(Valor.Dez,Naipe.Espadas);
+		if (c[0].equals_valor(c1) && c[1].equals_valor(c2) || c[0].equals_valor(c2) && c[1].equals_valor(c1)) {
+			blackJack = true;
 		}
 	}
 	
@@ -119,10 +130,52 @@ class Jogador {
     			};
     			break;
     		case 100: 
-    			if(!checkMax(100,n)){
+    			if(!this.checkMax(100,n)){
     				if(pote[5].subFicha(n)) {
     					aposta[5].sumFicha(n);
     				}
+    			};
+    			break;
+		}
+		
+	}
+	
+	public void removeAposta(int n, int val) {
+		switch(val){
+    		case 1: 
+    			if(!this.checkMin(1,n)){
+    				pote[0].sumFicha(n);
+    				aposta[0].subFicha(n);
+    			};
+    			break;
+    		case 5: 
+    			if(!this.checkMin(5,n)){
+    				pote[1].sumFicha(n);
+    				aposta[1].subFicha(n);
+    			};
+    			break;
+    		case 10:
+    			if(!this.checkMin(10,n)){
+    				pote[2].sumFicha(n);
+    				aposta[2].subFicha(n);
+    			};
+    			break;
+    		case 20:
+    			if(!this.checkMin(20,n)){
+    				pote[3].sumFicha(n);
+    				aposta[3].subFicha(n);
+    			};
+    			break;
+    		case 50: 
+    			if(!this.checkMin(50,n)){
+    				pote[4].sumFicha(n);
+    				aposta[4].subFicha(n);
+    			};
+    			break;
+    		case 100: 
+    			if(!this.checkMin(100,n)){
+    				pote[5].sumFicha(n);
+    				aposta[5].subFicha(n);
     			};
     			break;
 		}
@@ -146,11 +199,12 @@ class Jogador {
 		}
 	}
 	
-	public boolean checkMin() {
+	public boolean checkMin(int val, int n) {
 		int total = 0;
 		for (int i = 0; i< aposta.length; i++) {
 			total += aposta[i].getValorFicha();
 		}
+		total -= val * n;
 		if (total < 20) {
 			System.out.println("Limite minimo de $20");
 			return true;
