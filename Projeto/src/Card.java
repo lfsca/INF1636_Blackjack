@@ -32,6 +32,7 @@ class Card {
 	    	case Sete:val = 7; break;
 	    	case Oito:val = 8; break;
 	    	case Nove:val = 9; break;
+	    	case Dez:
 	    	case Valete:
 	    	case Dama:
 	    	case Rei:
@@ -75,4 +76,12 @@ class Card {
 	        }
 	        return false;
 	    }
+	    
+
+	    public boolean checkAce() {
+            if (valor_carta == Valor.Ás) {
+                return true;
+            }
+            return false;
+        }	
 }

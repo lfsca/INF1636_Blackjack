@@ -8,16 +8,35 @@ class Ficha {
 		this.qntd = quantidade;
 	}
 	
-	public int getValorFicha() {
+	public int getTotal() {
 		return valor_ficha * qntd;
+	}
+	
+	public int getValorFicha() {
+		return valor_ficha;
+	}
+	
+	public int getQuantidade() {
+		return qntd;
 	}
 	
 	public void sumFicha(int n) {
 		qntd += n;  
 	}
 	
-	public void subFicha(int n) {
-		qntd -= n;  
+	public boolean subFicha(int n) {
+		if (qntd - n < 0) {
+			System.out.println("Fichas Insuficientes");
+			return false;
+		}
+		else {
+			qntd -= n;
+			return true;
+		}
+	}
+	
+	public void resetFicha() {
+		qntd = 0;
 	}
 	
 

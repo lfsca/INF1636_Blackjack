@@ -2,37 +2,37 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Card c = new Card(Valor.Ás, Naipe.Espadas);
-		int a = c.getValorInt();
 		
 		
-		System.out.println(a);
-		Naipe b = c.getNaipe();
-		boolean vira = c.getFace();
-		System.out.println(vira);
-		c.vira();
-		vira = c.getFace();
-		System.out.println(vira);
-		
+		System.out.println("Testes Jogador");
 		Deck d = new Deck();
 		d.CriaDeck();
 		d.shuffle();
-		Card carta1 = d.compraCarta();
-		Card carta2 = d.compraCarta();
-		System.out.println(carta1.getValor() + " de " + carta1.getNaipe());
-		System.out.println(carta2.getValor() + " de " + carta2.getNaipe());
-		
-		int k = carta1.getValorInt();
-		int j = carta2.getValorInt();
-		
-		System.out.println(k);
-		System.out.println(j);
-
-		
+		Card c1 = d.compraCarta();
+		Card c2 = d.compraCarta();
+		System.out.println(c1.getValor() + " de " + c1.getNaipe());
+		System.out.println(c2.getValor() + " de " + c2.getNaipe());
 		Jogador j1 = new Jogador("Pedro");
-        j1.getProfit(1, 100);
-        int n = j1.getPote();
-        System.out.println(n);	
+		System.out.println(j1.getNome());
+        
+        Card mao[] = new Card[2];
+        mao[0] = c1;
+        mao[1] = c2;
+        j1.giveHand(mao);
+        j1.giveCard(new Card(Valor.Ás,Naipe.Copas));
+        j1.giveCard(new Card(Valor.Ás,Naipe.Copas));
+        mao = j1.getHand();
+        System.out.println(mao[3].getValor() + " de " + mao[3].getNaipe());
+        System.out.println(j1.checkSplit());
+        j1.regraAce();
+        System.out.println(j1.getSumHand());
+        j1.resetAposta();
+        j1.Apostar(1, 5);
+        j1.Apostar(1, 50);
+        j1.Apostar(1, 50);
+        j1.Apostar(1, 20);
+        int n = j1.getSumPote();
+        System.out.println(n);
 	}
 
 }
