@@ -1,4 +1,4 @@
-public enum Naipe {
+enum Naipe {
     Espadas,
     Copas,
     Ouros,

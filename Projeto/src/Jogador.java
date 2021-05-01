@@ -2,6 +2,7 @@ class Jogador {
 	private Ficha pote[];
 	private String nome;
 	private Card mao[];
+	private int soma;
 	
 	public Jogador(String nome) {
 		int valores[]= new int[]{1,5,10,20,50,100};
@@ -12,6 +13,7 @@ class Jogador {
 		}
 		this.nome = nome;
 		this.mao = new Card[2];
+		this.soma = 0;
 	}
 	
 	public int getPote() {
@@ -24,6 +26,9 @@ class Jogador {
 	
 	public void giveHand(Card c[]) {
 		mao = c;
+		for (int i=0;i<mao.length;i++) {
+			soma += mao[i].getValorInt();
+		}
 	}
 	
 	public void giveCard(Card c) {
@@ -35,6 +40,7 @@ class Jogador {
 			mao[i] = temp[i];
 		}
 		mao[i] = c;
+		soma += c.getValorInt();
 	}
 	
 	public Card[] getHand() {
@@ -69,24 +75,33 @@ class Jogador {
 	}
 		
 	public boolean checkSplit() {
-		boolean k = false;
-		for (int i=0;i<mao.length;i++) {
-			Card temp = mao[i];
-			for (int j=0; j<mao.length;j++){
-				if (temp.equals_valor(mao[j])){
-					k=true;
+        boolean k = false;
+        for (int i=0;i<mao.length;i++) {
+            Card temp = mao[i];
+            for (int j=i+1; j<mao.length;j++){
+                if (temp.equals_valor(mao[j])){
+                    k=true;
+                }
+            }
+        }
+        return k;
+    }
+	
+	public int getSumHand() {
+		return soma;
+	}
+	
+	public void regraAce(Jogador j) {
+		if (soma > 21) {
+			Card hand[] = new Card[j.getHand().length];
+			hand = j.getHand();
+			for (int i=0;i<hand.length;i++) {
+				if (hand[i].checkAce()) {
+					soma-=10;
+					break;
 				}
 			}
 		}
-		return k;
-	}
-	
-	public int checkSumHand() {
-		int total = 0;
-		for (int i=0;i<mao.length;i++) {
-			total += mao[i].getValorInt();
-		}
-		return total;
 	}
 	
 }

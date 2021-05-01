@@ -23,7 +23,7 @@ class Card {
 	    public int getValorInt() {
 	    	switch(valor_carta){
 	    	//Colocar a condicional que faz com que o A seja 11 ao invés de 1.
-	    	case Ás:val=11;break;
+	    	case Ás:val = 11;break;
 	    	case Dois:val = 2; break;
 	    	case Três:val = 3; break;
 	    	case Quatro:val = 4; break;
@@ -32,6 +32,7 @@ class Card {
 	    	case Sete:val = 7; break;
 	    	case Oito:val = 8; break;
 	    	case Nove:val = 9; break;
+	    	case Dez:
 	    	case Valete:
 	    	case Dama:
 	    	case Rei:
@@ -74,5 +75,12 @@ class Card {
 	            return true;
 	        }
 	        return false;
+	    }
+	    
+	    public boolean checkAce() {
+	    	if (valor_carta == Valor.Ás) {
+	    		return true;
+	    	}
+	    	return false;
 	    }
 }
