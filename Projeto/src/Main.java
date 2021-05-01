@@ -3,7 +3,10 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Card c = new Card(Valor.Ás, Naipe.Espadas);
-		Valor a = c.getValor();
+		int a = c.getValorInt();
+		
+		
+		System.out.println(a);
 		Naipe b = c.getNaipe();
 		boolean vira = c.getFace();
 		System.out.println(vira);
@@ -24,27 +27,12 @@ public class Main {
 		
 		System.out.println(k);
 		System.out.println(j);
-		/*
-		Ficha f = new Ficha(500);
-		int l = f.getValorFicha();
-		System.out.println(l);
-		f.sumFicha(50);
-		l = f.getValorFicha();
-		System.out.println(l);
-		f.subFicha(50);
-		l = f.getValorFicha();
-		System.out.println(l);
-		*/
-		/*
-		for (int j = 0; j<208;j++) {
-			System.out.println(d.getValor() + " de " + cards[j].getNaipe());
-		}
-		*/
+
 		
-		
-		
-				
-		
+		Jogador j1 = new Jogador("Pedro");
+        j1.getProfit(1, 100);
+        int n = j1.getPote();
+        System.out.println(n);	
 	}
 
 }
