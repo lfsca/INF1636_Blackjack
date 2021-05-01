@@ -15,17 +15,17 @@ class Card {
 	        return valor_carta;
 	    }
 	    
-	    //Valor da carta após o switch.
+	    //Valor da carta apï¿½s o switch.
 	    int val; 
 	    
 	    
-	    //Método para descobrir o valor inteiro da carta.
+	    //Mï¿½todo para descobrir o valor inteiro da carta.
 	    public int getValorInt() {
 	    	switch(valor_carta){
-	    	//Colocar a condicional que faz com que o A seja 11 ao invés de 1.
-	    	case Ás:val=11;break;
+	    	//Colocar a condicional que faz com que o A seja 11 ao invï¿½s de 1.
+	    	case ï¿½s:val = 11;break;
 	    	case Dois:val = 2; break;
-	    	case Três:val = 3; break;
+	    	case Trï¿½s:val = 3; break;
 	    	case Quatro:val = 4; break;
 	    	case Cinco:val = 5; break;
 	    	case Seis:val = 6; break;
@@ -52,7 +52,7 @@ class Card {
 	        return naipe;
 	    }
 	    
-	    //Descobre a se a face da carta está virada ou desvirada.
+	    //Descobre a se a face da carta estï¿½ virada ou desvirada.
 	    public boolean getFace(){
 	        return carta_desvirada;
 	    }
@@ -62,7 +62,7 @@ class Card {
 	        carta_desvirada = !carta_desvirada;
 	    }
 	    
-	    //Checa se uma carta é igual a outra.
+	    //Checa se uma carta ï¿½ igual a outra.
 	    public boolean equals(Card c){
 	        if (this.naipe == c.naipe && this.valor_carta == c.valor_carta){
 	            return true;
@@ -79,7 +79,7 @@ class Card {
 	    
 
 	    public boolean checkAce() {
-            if (valor_carta == Valor.Ás) {
+            if (valor_carta == Valor.ï¿½s) {
                 return true;
             }
             return false;

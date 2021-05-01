@@ -138,7 +138,7 @@ class Jogador {
 		System.out.println("Total");
 		System.out.println(total);
 		if (total > 100) {
-			System.out.println("Limite máximo de $100 atingido");
+			System.out.println("Limite mï¿½ximo de $100 atingido");
 			return true;
 		}
 		else {

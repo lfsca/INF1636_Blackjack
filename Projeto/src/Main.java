@@ -19,8 +19,8 @@ public class Main {
         mao[0] = c1;
         mao[1] = c2;
         j1.giveHand(mao);
-        j1.giveCard(new Card(Valor.¡s,Naipe.Copas));
-        j1.giveCard(new Card(Valor.¡s,Naipe.Copas));
+        j1.giveCard(new Card(Valor.√Ås,Naipe.Copas));
+        j1.giveCard(new Card(Valor.√Ås,Naipe.Copas));
         mao = j1.getHand();
         System.out.println(mao[3].getValor() + " de " + mao[3].getNaipe());
         System.out.println(j1.checkSplit());
