@@ -1,4 +1,4 @@
-public class Card {
+class Card {
 
 		private Valor valor_carta;
 	    private Naipe naipe;
@@ -23,7 +23,7 @@ public class Card {
 	    public int getValorInt() {
 	    	switch(valor_carta){
 	    	//Colocar a condicional que faz com que o A seja 11 ao invés de 1.
-	    	case Ás:val=1;break;
+	    	case Ás:val=11;break;
 	    	case Dois:val = 2; break;
 	    	case Três:val = 3; break;
 	    	case Quatro:val = 4; break;

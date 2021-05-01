@@ -1,4 +1,3 @@
-
 public class Main {
 
 	public static void main(String[] args) {
@@ -25,7 +24,7 @@ public class Main {
 		
 		System.out.println(k);
 		System.out.println(j);
-		
+		/*
 		Ficha f = new Ficha(500);
 		int l = f.getValorFicha();
 		System.out.println(l);
@@ -35,7 +34,7 @@ public class Main {
 		f.subFicha(50);
 		l = f.getValorFicha();
 		System.out.println(l);
-		
+		*/
 		/*
 		for (int j = 0; j<208;j++) {
 			System.out.println(d.getValor() + " de " + cards[j].getNaipe());

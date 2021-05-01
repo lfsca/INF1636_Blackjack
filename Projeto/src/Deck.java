@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Deck {
+class Deck {
 	public static final int num_cards = 208;
     private Card baralho[];
     private int carta_atual = 0;

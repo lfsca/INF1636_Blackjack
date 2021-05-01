@@ -1,5 +1,4 @@
-
-public class Jogador {
+class Jogador {
 	private Ficha ficha;
 	private char nome;
 	private char cor;
@@ -38,8 +37,7 @@ public class Jogador {
 	public void getProfit(int n) {
 		ficha.sumFicha(n);
 	}
-	
-	
+		
 	public boolean checkSplit() {
 		boolean k = false;
 		for (int i=0;i<mao.length;i++) {
