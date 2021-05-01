@@ -14,7 +14,6 @@ public class Deck {
     	return baralho;
     }
     
-    
     public void CriaDeck(){
         int n = 0;
         for (int i=0; i<4; i++) {

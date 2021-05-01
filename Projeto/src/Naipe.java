@@ -3,5 +3,4 @@ public enum Naipe {
     Copas,
     Ouros,
     Paus;
-
 }

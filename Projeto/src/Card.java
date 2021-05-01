@@ -15,6 +15,37 @@ public class Card {
 	        return valor_carta;
 	    }
 	    
+	    //Valor da carta após o switch.
+	    int val; 
+	    
+	    
+	    //Método para descobrir o valor inteiro da carta.
+	    public int getValorInt() {
+	    	switch(valor_carta){
+	    	//Colocar a condicional que faz com que o A seja 11 ao invés de 1.
+	    	case Ás:val=1;break;
+	    	case Dois:val = 2; break;
+	    	case Três:val = 3; break;
+	    	case Quatro:val = 4; break;
+	    	case Cinco:val = 5; break;
+	    	case Seis:val = 6; break;
+	    	case Sete:val = 7; break;
+	    	case Oito:val = 8; break;
+	    	case Nove:val = 9; break;
+	    	case Valete:
+	    	case Dama:
+	    	case Rei:
+	    		val = 10;
+	    		break;
+			default:
+				System.out.println("Erro no switch.\n");
+				break;
+	    	}
+	    	return val;
+	    	
+	    }
+
+	    
 	    //Descobre o naipe da carta.
 	    public Naipe getNaipe(){
 	        return naipe;
@@ -33,6 +64,13 @@ public class Card {
 	    //Checa se uma carta é igual a outra.
 	    public boolean equals(Card c){
 	        if (this.naipe == c.naipe && this.valor_carta == c.valor_carta){
+	            return true;
+	        }
+	        return false;
+	    }
+	    
+	    public boolean equals_valor(Card c){
+	        if (this.valor_carta == c.valor_carta){
 	            return true;
 	        }
 	        return false;
