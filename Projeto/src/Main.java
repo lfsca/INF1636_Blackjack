@@ -26,7 +26,12 @@ public class Main {
 		System.out.println(k);
 		System.out.println(j);
 		
-		Ficha f = new Ficha(500);
+		Jogador j1 = new Jogador("Pedro");
+		j1.getProfit(1, 100);
+		int n = j1.getPote();
+		System.out.println(n);
+		
+		/*Ficha f = new Ficha(500);
 		int l = f.getValorFicha();
 		System.out.println(l);
 		f.sumFicha(50);
@@ -36,7 +41,6 @@ public class Main {
 		l = f.getValorFicha();
 		System.out.println(l);
 		
-		/*
 		for (int j = 0; j<208;j++) {
 			System.out.println(d.getValor() + " de " + cards[j].getNaipe());
 		}

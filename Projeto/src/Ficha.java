@@ -1,21 +1,23 @@
 public class Ficha {
 	
 	private int valor_ficha;
+	private int qntd;
 	
-	public Ficha(int valor) {
+	public Ficha(int valor, int quantidade) {
 		this.valor_ficha = valor;
+		this.qntd = quantidade;
 	}
 	
 	public int getValorFicha() {
-		return valor_ficha;
+		return valor_ficha * qntd;
 	}
 	
 	public void sumFicha(int n) {
-		valor_ficha += n;  
+		qntd += n;  
 	}
 	
 	public void subFicha(int n) {
-		valor_ficha -= n;  
+		qntd -= n;  
 	}
 	
 }
