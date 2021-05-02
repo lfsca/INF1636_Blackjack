@@ -1,3 +1,5 @@
+package model;
+
 class Jogador {
 	private Ficha pote[];
 	private Ficha aposta[];
@@ -191,7 +193,7 @@ class Jogador {
 		System.out.println("Total");
 		System.out.println(total);
 		if (total > 100) {
-			System.out.println("Limite m�ximo de $100 atingido");
+			System.out.println("Limite maximo de $100 atingido");
 			return true;
 		}
 		else {
@@ -217,14 +219,14 @@ class Jogador {
 	
 	public void receiveProfit(Ficha[] profit) {
 		for (int i = 0; i < profit.length ; i++) {
-		switch(profit[i].getValorFicha()){
-			case 1: pote[0].sumFicha(profit[i].getQuantidade()*2);break;
-			case 5: pote[1].sumFicha(profit[i].getQuantidade()*2);break;
-			case 10: pote[2].sumFicha(profit[i].getQuantidade()*2);break;
-			case 20: pote[3].sumFicha(profit[i].getQuantidade()*2);break;
-			case 50: pote[4].sumFicha(profit[i].getQuantidade()*2);break;
-			case 100: pote[5].sumFicha(profit[i].getQuantidade()*2);break;
-		}
+			switch(profit[i].getValorFicha()){
+				case 1: pote[0].sumFicha(profit[i].getQuantidade()*2);break;
+				case 5: pote[1].sumFicha(profit[i].getQuantidade()*2);break;
+				case 10: pote[2].sumFicha(profit[i].getQuantidade()*2);break;
+				case 20: pote[3].sumFicha(profit[i].getQuantidade()*2);break;
+				case 50: pote[4].sumFicha(profit[i].getQuantidade()*2);break;
+				case 100: pote[5].sumFicha(profit[i].getQuantidade()*2);break;
+			}
 		}
 	}
 		
@@ -254,5 +256,42 @@ class Jogador {
 		}
 
 	}
+
+    public void calcula(int k) {
+        if (k<5) {
+            pote[0].sumFicha(k);
+        }
+        else if (k<10) {
+            pote[1].sumFicha(1);
+            this.calcula(k-5);
+        }
+        else if (k<20) {
+            pote[2].sumFicha(1);
+            this.calcula(k-10);
+        }
+        else if (k<30) {
+            pote[3].sumFicha(1);
+            this.calcula(k-20);
+        }
+        else if (k<40){
+            pote[3].sumFicha(1);
+            pote[2].sumFicha(1);
+            this.calcula(k-30);
+        }
+        else if (k<50) {
+            pote[3].sumFicha(2);
+            this.calcula(k-40);
+        }
+        else if (k==50) {
+            pote[3].sumFicha(2);
+            pote[1].sumFicha(1);
+            pote[0].sumFicha(5);
+        }
+    }
+
+    public void surrender() {
+           int s = this.getSumAposta()/2;
+           this.calcula(s);
+    }
 	
 }

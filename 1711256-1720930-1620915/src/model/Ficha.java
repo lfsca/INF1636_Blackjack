@@ -1,3 +1,5 @@
+package model;
+
 class Ficha {
 	
 	private int valor_ficha;

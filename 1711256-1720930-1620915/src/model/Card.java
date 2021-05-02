@@ -1,3 +1,5 @@
+package model;
+
 class Card {
 
 		private Valor valor_carta;

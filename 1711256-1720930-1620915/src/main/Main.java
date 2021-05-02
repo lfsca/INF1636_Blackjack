@@ -1,10 +1,15 @@
+package main;
+
+import model.Dealer;
+import model.Jogador
+
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		
-		System.out.println("Testes Jogador");
+		/*System.out.println("Testes Jogador");
 		Deck d = new Deck();
 		d.CriaDeck();
 		d.shuffle();
@@ -32,8 +37,29 @@ public class Main {
         j1.Apostar(1, 50);
         j1.Apostar(1, 20);
         j1.removeAposta(1, 5);
+        j1.surrender();
         int n = j1.getSumPote();
-        System.out.println(n);
+        System.out.println(n);*/
+		
+		Dealer d = new Dealer();
+		Jogador j1 = new Jogador("Pedro");
+		Jogador j2 = new Jogador("Pedro");
+		Jogador j3 = new Jogador("Pedro");
+		Jogador j4 = new Jogador("Pedro");
+		Jogador listJogadores[] = new Jogador[4];
+		listJogadores[0] = j1;
+		listJogadores[1] = j2;
+		listJogadores[2] = j3;
+		listJogadores[3] = j4;
+		d.giveFirstHands(listJogadores);
+		/*System.out.println(j1.getSumHand());
+		System.out.println(j2.getSumHand());
+		System.out.println(j3.getSumHand());
+		System.out.println(j4.getSumHand());
+		System.out.println(d.getSumHand());*/
+		d.dealCards();
+		System.out.println(d.getSumHand());
+		System.out.println(d.checkWin(j1));
 	}
 
 }
